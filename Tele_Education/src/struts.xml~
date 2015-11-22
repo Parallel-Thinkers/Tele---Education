@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+
+		<action name="loginAction" class="org.iiitb.action.LoginAction"
+			method="execute">
+			<result name="HA">HAHome.jsp</result>
+			<result name="TI">TIHome.jsp</result>
+			<result name="error">Home.jsp</result>
+			<result name="SC">SCHome.jsp</result>
+			<result name="success">Home.jsp</result>
+		</action>
+		
+		<action name="SignupAction_SC" class="org.iiitb.action.RegisterAction"
+			method="execute">
+			<result name="success">Register.jsp</result>
+			<result name="error">Register.jsp</result>
+		</action>
+		
+		<action name="SignupAction_TI" class="org.iiitb.action.RegisterAction"
+			method="execute">
+			<result name="success">Register.jsp</result>
+			<result name="error">Register.jsp</result>
+		</action>
+		
+		<action name="Load_Taluq" class = "org.iiitb.action.RegisterAction" method = "Load_Taluq" >
+			<result name = "Success">TI_Registration.jsp</result>
+			<result name = "error">Register.jsp</result>
+		</action>
+		
+		<action name="Load_School" class = "org.iiitb.action.RegisterAction" method = "Load_School">
+			<result name = "Success">SC_Registration.jsp</result>
+			<result name = "error">Register.jsp</result>
+		</action>
+		
+		<action name="Edit_profile" class = "org.iiitb.action.EditprofileAction" method = "execute">
+			<result name = "success">Home.jsp</result>
+			<result name = "error">Edit_Profile.jsp</result>
+		</action>
+		
+		<action name="Logout" class="org.iiitb.action.LogoutAction" method="execute">
+			<result name="logout">Home.jsp</result>
+			<result name="error">Home.jsp</result>
+		</action>
+	
+		<action name="Show_Request" class = "org.iiitb.action.Load_request">
+			<result name = "success">Show_Req_for_aprvl.jsp</result>
+			<result name = "error">error.jsp</result>
+		</action>
+		
+		<action name = "Approve" class = "org.iiitb.action.ApproveAction" method="execute">
+			<result name = "success">HAHome.jsp</result>
+			<result name = "error">Show_Req_for_aprvl.jsp</result>
+		</action>
+		
+		
+		</package>
+		
+		<package name="Ankit" extends="struts-default">
+		<action name="addStudent" class="org.iiitb.action.AddStudent"
+			method="execute">
+			<result name="success">AddStudent.jsp</result>
+		</action>
+		
+		
+		
+		<action name="submitStudent" class="org.iiitb.action.FillStudent"
+			method="execute">
+			<result name="success">FillStudentDetail.jsp</result>
+		</action>
+		
+		
+		<action name="getSubject" class="org.iiitb.action.GetSubject"
+			method="execute">
+			<result name="success">ShowSubject.jsp</result>
+		</action>
+		
+		
+		<action name="getSubTopic" class="org.iiitb.action.GetSubTopic"
+			method="execute">
+			<result name="success">ShowSubTopic.jsp</result>
+		</action>
+		
+		
+		<action name="submitTestDetail" class="org.iiitb.action.SubmitTestDetail"
+			method="execute">
+			<result name="success">CreateTest.jsp</result>
+		</action>
+		
+		
+		<action name="getTestTopic" class="org.iiitb.action.GetTestTopic"
+			method="execute">
+			<result name="success">TestTopic.jsp</result>
+		</action>
+		
+		<action name="uploadMarks" class="org.iiitb.action.UploadMarks"
+			method="execute">
+			<result name="success">FillMarks.jsp</result>
+		</action>
+		
+		<action name="fillMarks" class="org.iiitb.action.FillMarks"
+			method="execute">
+			<result name="success">CreateTest.jsp</result>
+		</action>
+		
+		
+		</package>
+		
+		<package name="Shan" extends="struts-default">
+		<!-- Shan module reprot issue by SC (10/07/2015) -->
+		<action name="reportissuepage" class = "org.iiitb.action.ReportIssuePage">
+			<result name = "success">ReportIssue.jsp</result>
+			<result name = "error">HAHome.jsp</result>
+		</action>
+				
+		<action name="reportissue" class = "org.iiitb.action.ReportIssue">
+			<result name = "success">ReportIssue.jsp</result>
+			<result name = "error">HAHome.jsp</result>
+		</action>
+
+		<action name="solveissue" class = "org.iiitb.action.SolveIssue">
+			<result name = "success">ReportIssue.jsp</result>
+			<result name = "error">HAHome.jsp</result>
+		</action>
+		
+<!-- Shan module unresolved issue reported to TI (10/07/2015) -->
+		<action name="issues" class = "org.iiitb.action.IssueHA">
+			<result name = "success">Issue_HA.jsp</result>
+			<result name = "error">HAHome.jsp</result>
+		</action>
+				
+		<action name="issuedetails" class = "org.iiitb.action.SH_Issues">
+			<result name = "success">IssueDetails.jsp</result>
+			<result name = "error">HAHome.jsp</result>
+		</action>
+		
+		<action name="statusAction" class="org.iiitb.action.StatusAction"
+			method="execute">
+			<result name="success">Status.jsp</result>
+		</action>		
+		
+		
+		</package>
+		
+		<package name="Tanay" extends="json-default,struts-default">
+
+		<!-- <action name="forum" class="ForumAction" method="execute"> <result 
+			name="success">/Forum.jsp</result> </action> -->
+		<action name="ajaxAction" class="forum.teledu.LoadAction"
+			method="execute">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="lfilterAction" class="forum.teledu.LoadFilterAction"
+			method="execute">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="postAction" class="forum.teledu.PostAction" method="execute" >
+		<result type="redirectAction" name="success" >/lpostAction</result>
+		</action>
+		<action name="lpostAction" class="forum.teledu.ShowPostAction" method="execute" >
+		<result name="success" >Forum.jsp</result>
+		</action>
+	</package>
+	
+	<package name="Arpit" extends="struts-default">
+	<action name="addBMessage" class="org.iiitb.action.AddBroadcastAction"
+			method="execute">
+			<result name="success">EnterBroadcastMsg.jsp</result>
+			<result name="failure">error.jsp</result>
+		</action>
+		
+		
+		<action name="getBMessage" class="org.iiitb.action.GetBroadCastAction"
+			method="execute">
+			<result name="success">SCHome.jsp</result>
+			<result name="failure">error.jsp</result>
+		</action>
+		<action name="getTI" class="org.iiitb.action.GetTIAction"
+			method="execute">
+			<result name="success">DisplayMessage.jsp</result>
+			<result name="failure">error.jsp</result>
+		</action>
+		
+		<action name="selectFriend" class="org.iiitb.action.GetPersonalMessageAction"
+			method="execute">
+			<result name="success">DisplayAndReply.jsp</result>
+			<result name="failure">error.jsp</result>
+		</action>
+		<action name="addReply" class="org.iiitb.action.PersonalMessageAction"
+			method="execute">
+			<result name="success">DisplayAndReply.jsp</result>
+			<result name="failure">error.jsp</result>
+		</action>
+		</package>
+
+
+
+
+
+</struts>
